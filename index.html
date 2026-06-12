@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- SEO -->
+  <meta name="keywords" content="AI, Healthcare, NeuroMed, Wilson Disease, Prediction" />
+  <meta name="description" content="NeuroMed AI - Wilson Disease Prediction using Machine Learning" />
+  <meta name="author" content="NeuroMed AI Team" />
+
+  <title>NeuroMed AI - Wilson Disease Predictor</title>
+
+  <!-- Owl Carousel CSS (CDN to avoid 404 error) -->
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap"
+        rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <!-- Header -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+
+          <a class="navbar-brand" href="{{ url_for('home') }}">
+            <span>NeuroMed AI</span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('about') }}">Test</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('do') }}">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('portfolio') }}">Scan</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+                </li>
+              </ul>
+
+              <div class="user_option ml-lg-4 mt-3 mt-lg-0">
+                <a href="#">
+                  <img src="{{ url_for('static', filename='images/user.png') }}" alt="User" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Slider Section -->
+    <section class="slider_section position-relative">
+      <div class="container">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+          <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="row align-items-center">
+                <div class="col-md-12">
+
+                  <div class="detail-box text-center">
+
+                    <h2 class="text-uppercase mb-2">Welcome to</h2>
+                    <h1 class="font-weight-bold mb-4">Wilson Disease Predictor</h1>
+
+                    <p class="mb-4">
+                      A powerful machine learning-driven application designed to assess the likelihood of Wilson's
+                      Disease with high accuracy. Enter medical parameters and get AI-powered prediction instantly.
+                    </p>
+
+                    <a href="{{ url_for('about') }}" class="btn btn-primary">
+                      Take Test Now
+                    </a>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Slider Section -->
+
+  </div>
+
+  <!-- JS Files -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    // Owl Carousel Activation
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      center: true,
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: { items: 1 },
+        1000: { items: 3 }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

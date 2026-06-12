@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="AI, Healthcare, NeuroMed, Dashboard" />
+  <meta name="description" content="NeuroMed AI Interactive Dashboard" />
+  <meta name="author" content="NeuroMed AI Team" />
+
+  <title>NeuroMed AI Dashboard</title>
+
+  <!-- Owl Carousel stylesheet -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- Header Section -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="{{ url_for('home') }}">
+            <span>NeuroMed AI</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('about') }}">Test</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('do') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('portfolio') }}">Scan</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+                </li>
+              </ul>
+              <div class="user_option">
+                <a href="#">
+                  <img src="{{ url_for('static', filename='images/user.png') }}" alt="User">
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header Section -->
+  </div>
+
+  <!-- Dashboard Section -->
+  <section class="dashboard_container d-flex flex-column justify-content-center align-items-center"
+    style="min-height: 100vh; background-color: #f9fafc; padding: 40px 0;">
+    <h2 class="text-center mb-4" style="font-size: 28px; font-weight: 700; color: #333;">
+      📊 Interactive Dashboard
+    </h2>
+
+    <iframe width="90%" height="600"
+      src="https://lookerstudio.google.com/embed/reporting/a79d0767-c5bd-4fc9-b86e-c616c3e06663/page/5CUtE"
+      frameborder="0"
+      style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);"
+      allowfullscreen
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+    </iframe>
+  </section>
+  <!-- End Dashboard Section -->
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 0,
+      navText: [],
+      center: true,
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: { items: 1 },
+        1000: { items: 3 }
+      }
+    });
+  </script>
+</body>
+
+</html>

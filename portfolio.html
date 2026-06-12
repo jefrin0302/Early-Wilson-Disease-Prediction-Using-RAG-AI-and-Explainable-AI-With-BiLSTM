@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Site Metas -->
+  <meta name="keywords" content="medical AI, Wilson disease detection, healthcare" />
+  <meta name="description" content="AI-powered Wilson Disease detection system using medical data." />
+  <meta name="author" content="NeuroMed AI Team" />
+
+  <title>NeuroMed AI – Wilson Disease Detection</title>
+
+  <!-- Owl Carousel stylesheet -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+
+  <!-- Fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- Header section starts -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="{{ url_for('home') }}">
+            <span>NeuroMed</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('about') }}">Test</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('do') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('portfolio') }}">Scan</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+                </li>
+              </ul>
+              <div class="user_option ml-lg-4 mt-3 mt-lg-0">
+                <a href="#">
+                  <img src="{{ url_for('static', filename='images/user.png') }}" alt="User" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- Upload Section -->
+  <section class="work_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>Wilson Disease Detection</h2>
+        <p>
+          Enter the required medical data below to analyze and detect the likelihood of Wilson Disease using our AI model.
+        </p>
+      </div>
+
+      <!-- Input Form -->
+      <form id="predictionForm" action="{{ url_for('submit') }}" method="POST" class="mt-4">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Age</label>
+            <input type="number" step="any" name="inputAge" class="form-control" required>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Gender</label>
+            <select name="inputGender" class="form-control" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Socioeconomic Status</label>
+          <select name="inputSocioeconomicStatus" class="form-control">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+
+        <!-- Add more input fields as needed -->
+        <div class="form-group">
+          <label>Ceruloplasmin (mg/dL)</label>
+          <input type="number" step="any" name="inputCeruloplasmin" class="form-control" required>
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary">Predict</button>
+        </div>
+      </form>
+
+      <!-- Result Display -->
+      <div class="text-center mt-4" id="result"></div>
+    </div>
+  </section>
+
+  <!-- JS Scripts -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    // AJAX Form Submission
+    $('#predictionForm').on('submit', function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '{{ url_for("submit") }}',
+        data: $(this).serialize(),
+        success: function (response) {
+          if (response.prediction === 1) {
+            $('#result').html('<div class="alert alert-danger">High risk of Wilson Disease detected.</div>');
+          } else {
+            $('#result').html('<div class="alert alert-success">Low risk of Wilson Disease detected.</div>');
+          }
+        },
+        error: function () {
+          $('#result').html('<div class="alert alert-warning">Error occurred. Please check your input.</div>');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

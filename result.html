@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wilson Disease Prediction Result</title>
+
+    <!-- INLINE CSS -->
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px 35px;
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #283593;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            color: #1a237e;
+            font-size: 22px;
+            margin-top: 30px;
+            border-left: 5px solid #1a73e8;
+            padding-left: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+        }
+
+        .positive {
+            color: #d32f2f;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .negative {
+            color: #2e7d32;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        ul {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+
+        ul li {
+            padding: 7px 0;
+            font-size: 17px;
+        }
+
+        .shap-section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 12px;
+            border: 1px solid #ddd;
+        }
+
+        hr {
+            margin: 25px 0;
+            border: none;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #1a73e8;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #0f57c4;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Wilson Disease Prediction Result</h2>
+
+        <!-- Prediction Result -->
+        <h3>🩺 Prediction:</h3>
+
+        {% if "Positive" in prediction_text %}
+        <p class="positive">🧬 {{ prediction_text }}</p>
+        {% else %}
+        <p class="negative">💚 {{ prediction_text }}</p>
+        {% endif %}
+
+        <p><b>Model Probability:</b> {{ probability }}</p>
+
+        <hr>
+
+        <!-- Patient Data -->
+        <h3>📌 Patient Input Details</h3>
+        <ul>
+            {% for key, value in data.items() %}
+            <li><strong>{{ key.replace("_", " ").title() }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+
+        <!-- SHAP EXPLANATIONS -->
+        <h3>📊 Explainable AI (SHAP)</h3>
+        <p>These plots explain how each medical feature influenced the prediction.</p>
+
+        <div class="shap-section">
+
+            {% if shap_force %}
+            <h4>🔍 Force Plot (Local Explanation)</h4>
+            <img src="{{ url_for('static', filename=shap_force) }}" alt="SHAP Force Plot">
+            {% endif %}
+
+            {% if shap_beeswarm %}
+            <h4>🌡️ Beeswarm Summary Plot (Global Feature Impact)</h4>
+            <img src="{{ url_for('static', filename=shap_beeswarm) }}" alt="SHAP Beeswarm Plot">
+            {% endif %}
+
+            {% if shap_bar %}
+            <h4>📌 Feature Importance (Bar Ranking)</h4>
+            <img src="{{ url_for('static', filename=shap_bar) }}" alt="SHAP Bar Plot">
+            {% endif %}
+
+        </div>
+
+        <div class="back-btn">
+            <a href="/" class="btn">⬅ Go Back</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

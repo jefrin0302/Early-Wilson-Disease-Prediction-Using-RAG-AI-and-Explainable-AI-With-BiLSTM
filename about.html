@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>NeuroMed AI</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- Header Section -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="{{ url_for('home') }}">
+            <span>NeuroMed AI</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">Test</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('do') }}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('portfolio') }}">Scan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <!-- Info Section -->
+  <section class="who_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/wd.png') }}" alt="">
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>Take The Test</h2>
+            </div>
+            <p>
+              Complete the Wilson Disease Prediction Test in minutes.  
+              Enter your medical details and our AI will analyze the risk instantly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="who_section layout_padding">
+    <div class="container">
+      <form action="/submit" method="post">
+        <div class="form-row">
+
+          <!-- AGE -->
+          <div class="form-group col-lg-4">
+            <label for="inputAge">Age</label>
+            <input type="number" class="form-control" id="inputAge" name="inputAge" required>
+          </div>
+
+          <!-- SEX -->
+          <div class="form-group col-lg-4">
+            <label for="inputGender">Sex</label>
+            <select class="form-control" id="inputGender" name="inputGender" required>
+              <option value="">-- Select Sex --</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <!-- REGION -->
+          <div class="form-group col-lg-4">
+            <label for="inputRegion">Region</label>
+            <select class="form-control" id="inputRegion" name="inputRegion" required>
+              <option value="">-- Select Region --</option>
+              <option value="Urban">Urban</option>
+              <option value="Rural">Rural</option>
+            </select>
+          </div>
+
+          <!-- CERULOPLASMIN -->
+          <div class="form-group col-lg-4">
+            <label for="inputCeruloplasmin">Ceruloplasmin Level</label>
+            <input type="number" class="form-control" id="inputCeruloplasmin" name="inputCeruloplasmin" step="0.1" required>
+          </div>
+
+          <!-- BLOOD COPPER -->
+          <div class="form-group col-lg-4">
+            <label for="inputCopperBlood">Copper in Blood Serum</label>
+            <input type="number" class="form-control" id="inputCopperBlood" name="inputCopperBlood" step="0.1" required>
+          </div>
+
+          <!-- FREE COPPER -->
+          <div class="form-group col-lg-4">
+            <label for="inputFreeCopperBlood">Free Copper in Blood Serum</label>
+            <input type="number" class="form-control" id="inputFreeCopperBlood" name="inputFreeCopperBlood" step="0.1" required>
+          </div>
+
+          <!-- URINE COPPER -->
+          <div class="form-group col-lg-4">
+            <label for="inputCopperUrine">Copper in Urine</label>
+            <input type="number" class="form-control" id="inputCopperUrine" name="inputCopperUrine" step="0.1" required>
+          </div>
+
+          <!-- ALT -->
+          <div class="form-group col-lg-4">
+            <label for="inputALT">ALT</label>
+            <input type="number" class="form-control" id="inputALT" name="inputALT" step="0.1" required>
+          </div>
+
+          <!-- AST -->
+          <div class="form-group col-lg-4">
+            <label for="inputAST">AST</label>
+            <input type="number" class="form-control" id="inputAST" name="inputAST" step="0.1" required>
+          </div>
+
+          <!-- BILIRUBIN -->
+          <div class="form-group col-lg-4">
+            <label for="inputTotalBilirubin">Total Bilirubin</label>
+            <input type="number" class="form-control" id="inputTotalBilirubin" name="inputTotalBilirubin" step="0.1" required>
+          </div>
+
+          <!-- ALBUMIN -->
+          <div class="form-group col-lg-4">
+            <label for="inputAlbumin">Albumin</label>
+            <input type="number" class="form-control" id="inputAlbumin" name="inputAlbumin" step="0.1" required>
+          </div>
+
+          <!-- ALP -->
+          <div class="form-group col-lg-4">
+            <label for="inputALP">ALP</label>
+            <input type="number" class="form-control" id="inputALP" name="inputALP" step="0.1" required>
+          </div>
+
+          <!-- INR -->
+          <div class="form-group col-lg-4">
+            <label for="inputProthrombin">Prothrombin Time / INR</label>
+            <input type="number" class="form-control" id="inputProthrombin" name="inputProthrombin" step="0.1" required>
+          </div>
+
+          <!-- GGT -->
+          <div class="form-group col-lg-4">
+            <label for="inputGGT">Gamma-Glutamyl Transferase</label>
+            <input type="number" class="form-control" id="inputGGT" name="inputGGT" step="0.1" required>
+          </div>
+
+          <!-- KFR -->
+          <div class="form-group col-lg-4">
+            <label for="inputKFR">Kayser-Fleischer Rings</label>
+            <select class="form-control" id="inputKFR" name="inputKFR" required>
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <!-- NEURO -->
+          <div class="form-group col-lg-4">
+            <label for="inputNeurological">Neurological Symptoms Score</label>
+            <input type="number" class="form-control" id="inputNeurological" name="inputNeurological" step="0.1" required>
+          </div>
+
+          <!-- PSYCHIATRIC -->
+          <div class="form-group col-lg-4">
+            <label for="inputPsychiatric">Psychiatric Symptoms</label>
+            <select class="form-control" id="inputPsychiatric" name="inputPsychiatric" required>
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <!-- COGNITIVE -->
+          <div class="form-group col-lg-4">
+            <label for="inputCognitive">Cognitive Function Score</label>
+            <input type="number" class="form-control" id="inputCognitive" name="inputCognitive" step="0.1" required>
+          </div>
+
+          <!-- FAMILY HISTORY -->
+          <div class="form-group col-lg-4">
+            <label for="inputFamilyHistory">Family History</label>
+            <select class="form-control" id="inputFamilyHistory" name="inputFamilyHistory" required>
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <!-- GENE MUTATION -->
+          <div class="form-group col-lg-4">
+            <label for="inputGeneMutation">ATP7B Gene Mutation</label>
+            <select class="form-control" id="inputGeneMutation" name="inputGeneMutation" required>
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <!-- SOCIO STATUS -->
+          <div class="form-group col-lg-4">
+            <label for="inputSocioeconomicStatus">Socioeconomic Status</label>
+            <select class="form-control" id="inputSocioeconomicStatus" name="inputSocioeconomicStatus" required>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+
+          <!-- ALCOHOL -->
+          <div class="form-group col-lg-4">
+            <label for="inputAlcoholUse">Alcohol Use</label>
+            <select class="form-control" id="inputAlcoholUse" name="inputAlcoholUse" required>
+              <option value="False">No</option>
+              <option value="True">Yes</option>
+            </select>
+          </div>
+
+          <!-- BMI -->
+          <div class="form-group col-lg-4">
+            <label for="inputBMI">BMI</label>
+            <input type="number" class="form-control" id="inputBMI" name="inputBMI" step="0.1" required>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center mt-3">
+          <button type="submit" class="btn btn-dark btn-lg">CHECK NOW</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+</body>
+</html>
