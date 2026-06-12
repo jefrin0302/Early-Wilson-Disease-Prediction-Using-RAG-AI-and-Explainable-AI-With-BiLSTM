@@ -1,0 +1,58 @@
+{
+  "removed_leakage_columns": [
+    "Age"
+  ],
+  "feature_names": [
+    "Ceruloplasmin Level",
+    "Copper in Blood Serum",
+    "Free Copper in Blood Serum",
+    "Copper in Urine",
+    "ALT",
+    "AST",
+    "Total Bilirubin",
+    "Albumin",
+    "Alkaline Phosphatase (ALP)",
+    "Prothrombin Time / INR",
+    "Gamma-Glutamyl Transferase (GGT)",
+    "Neurological Symptoms Score",
+    "Cognitive Function Score",
+    "BMI",
+    "Sex_Female",
+    "Sex_Male",
+    "Region_East",
+    "Region_North",
+    "Region_South",
+    "Region_West",
+    "Socioeconomic Status_High",
+    "Socioeconomic Status_Low",
+    "Socioeconomic Status_Medium",
+    "Kayser-Fleischer Rings_0",
+    "Kayser-Fleischer Rings_1",
+    "Psychiatric Symptoms_0",
+    "Psychiatric Symptoms_1",
+    "Family History_0",
+    "Family History_1",
+    "ATB7B Gene Mutation_0",
+    "ATB7B Gene Mutation_1"
+  ],
+  "model_list": [
+    "SVM",
+    "LogReg",
+    "StackedMeta"
+  ],
+  "metrics_summary": {
+    "SVM": {
+      "accuracy": 0.99875,
+      "auc": 0.9999881562499999
+    },
+    "LogReg": {
+      "accuracy": 0.99875,
+      "auc": 0.9999895
+    },
+    "StackedMeta": {
+      "accuracy": 0.9988333333333334,
+      "auc": 0.99999234375
+    }
+  },
+  "artifact_path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\Wilson-Disease-Project-main\\Wilson-Disease-Project-main\\wilson_artifacts"
+}
